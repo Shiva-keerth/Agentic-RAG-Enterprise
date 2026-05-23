@@ -55,4 +55,35 @@ cv2.putText(img, "Notes: Patient exhibits signs of mild asthma.", (50, 150), fon
 cv2.putText(img, "Prescribed Albuterol inhaler. Follow up in 3 months.", (50, 200), font, 0.6, (0, 0, 0), 1)
 cv2.imwrite("data/healthcare/bob_williams_scan.png", img)
 
-print("✅ Dummy medical data successfully generated in data/healthcare/")
+print("Dummy medical data successfully generated in data/healthcare/")
+
+# --- FINANCE DATA ---
+os.makedirs("data/finance", exist_ok=True)
+
+print("Generating Dummy Finance PDF...")
+# Generate Finance PDF (Earnings Report)
+pdf3 = FPDF()
+pdf3.add_page()
+pdf3.set_font("Arial", size=12)
+pdf3.cell(200, 10, txt="QUARTERLY EARNINGS REPORT - ACME CORP", ln=1, align="C")
+pdf3.cell(200, 10, txt="Fiscal Quarter: Q3 2026 | Date Published: 2026-10-15", ln=1)
+pdf3.multi_cell(0, 10, txt="""
+EXECUTIVE SUMMARY:
+Acme Corp reports a strong third quarter driven by robust enterprise software sales. 
+
+FINANCIAL HIGHLIGHTS:
+- Total Revenue: $450 Million (Up 15% YoY)
+- Net Income: $85 Million 
+- Operating Margin: 22.5%
+- Earnings Per Share (EPS): $1.45
+
+RISK FACTORS:
+Supply chain disruptions in the semiconductor sector continue to pose a minor risk to Q4 hardware delivery timelines. We are actively diversifying our supplier base to mitigate potential delays.
+
+FORWARD LOOKING STATEMENT:
+We project Q4 revenue to be in the range of $480M to $500M.
+""")
+pdf3.output("data/finance/acme_corp_q3_earnings.pdf")
+
+print("Dummy finance data successfully generated in data/finance/")
+

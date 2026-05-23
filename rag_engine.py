@@ -69,6 +69,8 @@ RULES:
 - If the question is about finance/business topics, use search_finance_docs FIRST. If results are insufficient, THEN use search_web.
 - If the question is general or about current events, use search_web directly.
 - After retrieving information, synthesize a clear, professional answer.
+- DO NOT apologize or mention any previous mistakes. 
+- DO NOT output your internal thought process. Provide only the final, confident answer.
 - ALWAYS mention which source you used (Internal Medical DB, Internal Finance DB, or Live Web Search) at the end of your answer.
 - Format your answer clearly with proper paragraphs."""
 
@@ -96,12 +98,25 @@ RULES:
             "Search the internal Finance vector database. Use this tool for questions about financial reports, revenue data, stock analysis, corporate earnings, and financial documents stored in our system."
         )
 
-        # Tool 3: Live Web Search via Tavily
-        web_tool = TavilySearch(
-            max_results=3,
-            topic="general",
-            include_answer=True
-        )
+        # Tool 3: Live Web Search via Tavily (Custom Wrapper to fix Llama 3.1 JSON errors)
+        from langchain_core.tools import tool
+        from tavily import TavilyClient
+
+        @tool
+        def search_web(query: str) -> str:
+            """Search the live internet via Tavily AI for real-time data, current events, market prices, or any information NOT available in the internal databases."""
+            try:
+                client = TavilyClient(api_key=os.getenv("TAVILY_API_KEY"))
+                response = client.search(query=query, max_results=3)
+                results = response.get("results", [])
+                output = ""
+                for res in results:
+                    output += f"Source URL: {res.get('url')}\nContent: {res.get('content')}\n\n"
+                return output if output else "No results found on the web."
+            except Exception as e:
+                return f"Web search failed: {str(e)}"
+
+        web_tool = search_web
 
         return [medical_tool, finance_tool, web_tool]
 

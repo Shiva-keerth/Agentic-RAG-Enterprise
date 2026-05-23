@@ -103,6 +103,20 @@ class DocumentIngestor:
         self.vectorstore.add_texts(texts=chunks, metadatas=metadatas)
         return len(chunks)
 
+    def auto_classify_domain(self, text):
+        """Auto-detect domain based on keyword frequency in the text."""
+        text_lower = text.lower()
+        
+        healthcare_keywords = ["patient", "medical", "diagnosis", "health", "blood", "clinic", "symptoms", "treatment", "mri", "prescribed"]
+        finance_keywords = ["revenue", "earnings", "finance", "fiscal", "margin", "stock", "income", "quarterly", "corporate", "sales"]
+        
+        health_score = sum(text_lower.count(kw) for kw in healthcare_keywords)
+        finance_score = sum(text_lower.count(kw) for kw in finance_keywords)
+        
+        if finance_score > health_score:
+            return "finance"
+        return "healthcare" # Default fallback
+
     def ingest_uploaded_pdf(self, file_bytes, filename, domain):
         """
         Full pipeline for ingesting an uploaded PDF from the Streamlit UI.
@@ -111,6 +125,12 @@ class DocumentIngestor:
         pages = self.extract_text_from_pdf_bytes(file_bytes, filename)
         if not pages:
             return {"success": False, "error": "Could not extract text from PDF.", "chunks": 0, "pages": 0}
+
+        # Combine text from first few pages to classify
+        if domain == "auto":
+            sample_text = " ".join([text for _, text in pages[:3]])
+            domain = self.auto_classify_domain(sample_text)
+            print(f"[Ingestor] Auto-classified '{filename}' as: {domain}")
 
         total_chunks = 0
         for page_num, page_text in pages:
