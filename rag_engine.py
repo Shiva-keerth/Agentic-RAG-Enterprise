@@ -97,11 +97,14 @@ RULES:
             "Search the internal Finance vector database. Use this tool for questions about financial reports, revenue data, stock analysis, corporate earnings, and financial documents stored in our system."
         )
 
-        # Tool 3: Live Web Search via Tavily (Custom Wrapper to fix Llama 3.1 JSON errors)
         from langchain_core.tools import tool
         from tavily import TavilyClient
+        from pydantic import BaseModel, Field
 
-        @tool
+        class WebSearchInput(BaseModel):
+            query: str = Field(description="The search query to look up on the internet.")
+
+        @tool("search_web", args_schema=WebSearchInput)
         def search_web(query: str) -> str:
             """Search the live internet via Tavily AI for real-time data, current events, market prices, or any information NOT available in the internal databases."""
             try:
