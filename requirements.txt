@@ -11,3 +11,5 @@ pymupdf
 pytesseract
 opencv-python
 python-dotenv
+tavily-python
+torchvision
