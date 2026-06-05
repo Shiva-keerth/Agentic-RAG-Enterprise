@@ -9,7 +9,7 @@ chromadb
 sentence-transformers
 pymupdf
 pytesseract
-opencv-python
+opencv-python-headless
 python-dotenv
 tavily-python
 torchvision
