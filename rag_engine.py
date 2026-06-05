@@ -61,13 +61,14 @@ class AgenticRAG:
 
 1. **search_medical_docs**: Search the internal Medical/Healthcare vector database for patient records, prescriptions, diagnoses, lab results, and clinical data.
 2. **search_finance_docs**: Search the internal Finance vector database for financial reports, revenue data, stock analysis, and corporate financial information.
-3. **search_web**: Search the live internet via Tavily AI for real-time data, current events, market prices, or any information NOT available in the internal databases.
+3. **tavily_search_results_json**: Search the live internet via Tavily AI for real-time data, current events, market prices, or any information NOT available in the internal databases.
 
 RULES:
 - ALWAYS use a tool before answering. Never answer from your own knowledge alone.
-- If the question is about medical/health topics, use search_medical_docs FIRST. If results are insufficient, THEN use search_web.
-- If the question is about finance/business topics, use search_finance_docs FIRST. If results are insufficient, THEN use search_web.
-- If the question is general or about current events, use search_web directly.
+- When you decide to use a tool, YOU MUST ONLY OUTPUT THE TOOL CALL. Do not output any conversational text or explanation before the tool call, otherwise the system will crash.
+- If the question is about medical/health topics, use search_medical_docs FIRST. If results are insufficient, THEN use tavily_search_results_json.
+- If the question is about finance/business topics, use search_finance_docs FIRST. If results are insufficient, THEN use tavily_search_results_json.
+- If the question is general or about current events, use tavily_search_results_json directly.
 - After retrieving information, you MUST synthesize a clear, comprehensive answer using the actual facts, data, and details provided by the tool. DO NOT simply state that you retrieved the information.
 - DO NOT apologize or mention any previous mistakes. 
 - DO NOT output your internal thought process. Provide only the final, confident answer with the retrieved facts.
@@ -97,28 +98,9 @@ RULES:
             "Search the internal Finance vector database. Use this tool for questions about financial reports, revenue data, stock analysis, corporate earnings, and financial documents stored in our system."
         )
 
-        from langchain_core.tools import tool
-        from tavily import TavilyClient
-        from pydantic import BaseModel, Field
-
-        class WebSearchInput(BaseModel):
-            query: str = Field(description="The search query to look up on the internet.")
-
-        @tool("search_web", args_schema=WebSearchInput)
-        def search_web(query: str) -> str:
-            """Search the live internet via Tavily AI for real-time data, current events, market prices, or any information NOT available in the internal databases."""
-            try:
-                client = TavilyClient(api_key=os.getenv("TAVILY_API_KEY"))
-                response = client.search(query=query, max_results=3)
-                results = response.get("results", [])
-                output = ""
-                for res in results:
-                    output += f"Source URL: {res.get('url')}\nContent: {res.get('content')}\n\n"
-                return output if output else "No results found on the web."
-            except Exception as e:
-                return f"Web search failed: {str(e)}"
-
-        web_tool = search_web
+        # Tool 3: Live Web Search via Tavily
+        from langchain_community.tools.tavily_search import TavilySearchResults
+        web_tool = TavilySearchResults(max_results=3)
 
         return [medical_tool, finance_tool, web_tool]
 
