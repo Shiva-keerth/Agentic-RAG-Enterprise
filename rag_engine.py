@@ -35,7 +35,7 @@ class AgenticRAG:
         self.llm = ChatGroq(
             temperature=0,
             groq_api_key=os.getenv("GROQ_API_KEY"),
-            model_name="llama-3.1-8b-instant"
+            model_name="llama-3.3-70b-versatile"
         )
 
         # 2. Setup Embeddings & Vector Store
@@ -71,7 +71,6 @@ RULES:
 - After retrieving information, you MUST synthesize a clear, comprehensive answer using the actual facts, data, and details provided by the tool. DO NOT simply state that you retrieved the information.
 - DO NOT apologize or mention any previous mistakes. 
 - DO NOT output your internal thought process. Provide only the final, confident answer with the retrieved facts.
-- ALWAYS mention which source you used (Internal Medical DB, Internal Finance DB, or Live Web Search) at the end of your answer.
 - Format your answer clearly with proper paragraphs."""
 
         self.agent = create_react_agent(
