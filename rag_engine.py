@@ -68,9 +68,9 @@ RULES:
 - If the question is about medical/health topics, use search_medical_docs FIRST. If results are insufficient, THEN use search_web.
 - If the question is about finance/business topics, use search_finance_docs FIRST. If results are insufficient, THEN use search_web.
 - If the question is general or about current events, use search_web directly.
-- After retrieving information, synthesize a clear, professional answer.
+- After retrieving information, you MUST synthesize a clear, comprehensive answer using the actual facts, data, and details provided by the tool. DO NOT simply state that you retrieved the information.
 - DO NOT apologize or mention any previous mistakes. 
-- DO NOT output your internal thought process. Provide only the final, confident answer.
+- DO NOT output your internal thought process. Provide only the final, confident answer with the retrieved facts.
 - ALWAYS mention which source you used (Internal Medical DB, Internal Finance DB, or Live Web Search) at the end of your answer.
 - Format your answer clearly with proper paragraphs."""
 
