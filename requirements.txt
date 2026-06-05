@@ -15,3 +15,5 @@ tavily-python
 torchvision
 pysqlite3-binary
 protobuf<4.0.0
+langchain-text-splitters
+fpdf
