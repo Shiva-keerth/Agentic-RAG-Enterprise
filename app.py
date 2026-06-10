@@ -3,9 +3,12 @@ Dual-Domain Agentic RAG Platform — Premium Streamlit UI
 Phase 6: Midnight FinTech Glass Theme with Agentic Intelligence
 """
 
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+try:
+    __import__('pysqlite3')
+    import sys
+    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+except Exception:
+    pass # Ignore on Windows where native sqlite3 is usually fine
 
 import streamlit as st
 import time
