@@ -57,8 +57,8 @@ User Question
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/Agentic-RAG-Platform.git
-cd Agentic-RAG-Platform
+git clone https://github.com/Shiva-keerth/Agentic-RAG-Enterprise.git
+cd Agentic-RAG-Enterprise
 ```
 
 2. Install dependencies
