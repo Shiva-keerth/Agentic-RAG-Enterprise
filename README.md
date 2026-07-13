@@ -1,4 +1,4 @@
-# Agentic-RAG-Enterprise
+# Dual-Domain Agentic RAG Platform
 
 ![Agentic RAG](https://img.shields.io/badge/Architecture-Agentic_RAG-00ffb4?style=for-the-badge)
 ![LangGraph](https://img.shields.io/badge/Framework-LangGraph-blue?style=for-the-badge)
@@ -10,6 +10,16 @@
 An Enterprise-grade **Agentic Retrieval-Augmented Generation (RAG)** platform that autonomously routes user queries between specialized domain vector databases and real-time live web search. 
 
 Instead of traditional static RAG (which always searches the same database regardless of context), this platform utilizes a **ReAct Agent** powered by `LangGraph` and `Llama-3.1` to dynamically reason about the user's intent and select the appropriate tool for the job.
+
+---
+
+## ✨ Highlights
+
+🤖 **Autonomous LangGraph Agent**
+🩺 **Healthcare + 💰 Finance domain routing**
+🌐 **Live web search with Tavily**
+📚 **Source-grounded responses**
+⚡ **Groq Llama 3.1 + ChromaDB**
 
 ---
 
