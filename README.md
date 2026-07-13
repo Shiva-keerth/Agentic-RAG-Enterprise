@@ -5,7 +5,7 @@
 ![Groq](https://img.shields.io/badge/Inference-Groq_LPU-orange?style=for-the-badge)
 ![Llama3](https://img.shields.io/badge/LLM-Llama_3.1-black?style=for-the-badge)
 
-> **🔗 Live Demo:** [Agentic-RAG-Enterprise on Hugging Face](https://huggingface.co/spaces/Shiva-keerth/Agentic-RAG-Enterprise) &nbsp;|&nbsp; **📊 GitHub Stats:** ![Stars](https://img.shields.io/github/stars/Shiva-keerth/Agentic-RAG-Enterprise?style=social)
+> **🔗 Live Demo:** [Agentic-RAG-Enterprise on Streamlit](https://agentic-rag-enterprise.streamlit.app/) &nbsp;|&nbsp; **📊 GitHub Stats:** ![Stars](https://img.shields.io/github/stars/Shiva-keerth/Agentic-RAG-Enterprise?style=social)
 
 An Enterprise-grade **Agentic Retrieval-Augmented Generation (RAG)** platform that autonomously routes user queries between specialized domain vector databases and real-time live web search. 
 
