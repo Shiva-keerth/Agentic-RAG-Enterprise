@@ -1,13 +1,23 @@
-# Dual-Domain Agentic RAG Platform
+# Agentic-RAG-Enterprise
 
 ![Agentic RAG](https://img.shields.io/badge/Architecture-Agentic_RAG-00ffb4?style=for-the-badge)
 ![LangGraph](https://img.shields.io/badge/Framework-LangGraph-blue?style=for-the-badge)
 ![Groq](https://img.shields.io/badge/Inference-Groq_LPU-orange?style=for-the-badge)
 ![Llama3](https://img.shields.io/badge/LLM-Llama_3.1-black?style=for-the-badge)
 
+> **🔗 Live Demo:** [Agentic-RAG-Enterprise on Hugging Face](https://huggingface.co/spaces/Shiva-keerth/Agentic-RAG-Enterprise) &nbsp;|&nbsp; **📊 GitHub Stats:** ![Stars](https://img.shields.io/github/stars/Shiva-keerth/Agentic-RAG-Enterprise?style=social)
+
 An Enterprise-grade **Agentic Retrieval-Augmented Generation (RAG)** platform that autonomously routes user queries between specialized domain vector databases and real-time live web search. 
 
 Instead of traditional static RAG (which always searches the same database regardless of context), this platform utilizes a **ReAct Agent** powered by `LangGraph` and `Llama-3.1` to dynamically reason about the user's intent and select the appropriate tool for the job.
+
+---
+
+## 📸 Application Interface
+
+![Agentic RAG Dashboard](assets/app_screenshot.png)
+
+---
 
 ## 🌟 Key Features
 
