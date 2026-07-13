@@ -5,7 +5,7 @@
 ![Groq](https://img.shields.io/badge/Inference-Groq_LPU-orange?style=for-the-badge)
 ![Llama3](https://img.shields.io/badge/LLM-Llama_3.1-black?style=for-the-badge)
 
-> **🔗 Live Demo:** [Agentic-RAG-Enterprise on Streamlit](https://agentic-rag-enterprise-vzbbup5nnfpezue7meh3fz.streamlit.app/) &nbsp;|&nbsp; **📊 GitHub Stats:** ![Stars](https://img.shields.io/github/stars/Shiva-keerth/Agentic-RAG-Enterprise?style=social)
+> **🔗 Live Demo:** [Dual-Domain-Agentic-RAG-Platform on Streamlit](https://agentic-rag-enterprise-vzbbup5nnfpezue7meh3fz.streamlit.app/) &nbsp;|&nbsp; **📊 GitHub Stats:** ![Stars](https://img.shields.io/github/stars/Shiva-keerth/Dual-Domain-Agentic-RAG-Platform?style=social)
 
 An Enterprise-grade **Agentic Retrieval-Augmented Generation (RAG)** platform that autonomously routes user queries between specialized domain vector databases and real-time live web search. 
 
@@ -15,11 +15,11 @@ Instead of traditional static RAG (which always searches the same database regar
 
 ## ✨ Highlights
 
-🤖 **Autonomous LangGraph Agent**
-🩺 **Healthcare + 💰 Finance domain routing**
-🌐 **Live web search with Tavily**
-📚 **Source-grounded responses**
-⚡ **Groq Llama 3.1 + ChromaDB**
+- 🤖 **Autonomous LangGraph Agent**
+- 🩺 **Healthcare + 💰 Finance domain routing**
+- 🌐 **Live web search with Tavily**
+- 📚 **Source-grounded responses**
+- ⚡ **Groq Llama 3.1 + ChromaDB**
 
 ---
 
@@ -77,8 +77,8 @@ User Question
 
 1. Clone the repository
 ```bash
-git clone https://github.com/Shiva-keerth/Agentic-RAG-Enterprise.git
-cd Agentic-RAG-Enterprise
+git clone https://github.com/Shiva-keerth/Dual-Domain-Agentic-RAG-Platform.git
+cd Dual-Domain-Agentic-RAG-Platform
 ```
 
 2. Install dependencies
