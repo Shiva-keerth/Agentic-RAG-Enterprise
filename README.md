@@ -59,7 +59,7 @@ User Question
 ## 🛠️ Technology Stack
 
 - **Orchestration**: LangGraph, LangChain
-- **LLM**: Meta Llama-3.1-8b-instant (via Groq API for ultra-low latency)
+- **LLM**: Meta openai/gpt-oss-120b (via Groq API for ultra-low latency)
 - **Embeddings**: HuggingFace `all-MiniLM-L6-v2` (384-dimensional dense vectors)
 - **Vector Database**: ChromaDB (Persistent local storage with metadata filtering)
 - **Web Search API**: Tavily AI Search API

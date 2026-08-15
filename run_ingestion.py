@@ -11,8 +11,7 @@ def main():
     pdf_files = ["john_doe_bloodwork.pdf", "jane_smith_mri.pdf"]
     for pdf in pdf_files:
         pdf_path = os.path.join(healthcare_data_dir, pdf)
-        text = ingestor.extract_text_from_pdf(pdf_path)
-        ingestor.process_and_store(text, source_name=pdf, domain="healthcare")
+        ingestor.ingest_pdf_from_path(pdf_path, domain="healthcare")
         
     # 2. Ingest Physical Image Scans (OpenCV & Tesseract)
     img_files = ["bob_williams_scan.png"]

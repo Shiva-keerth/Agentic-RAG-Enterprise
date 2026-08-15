@@ -274,7 +274,7 @@ st.markdown(f"""
         <div class="metric-label">Domains Active</div>
     </div>
     <div class="metric-card">
-        <div class="metric-value">Llama 3.1</div>
+        <div class="metric-value">Llama 3.3</div>
         <div class="metric-label">LLM Engine</div>
     </div>
 </div>

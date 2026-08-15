@@ -35,7 +35,7 @@ class AgenticRAG:
         self.llm = ChatGroq(
             temperature=0,
             groq_api_key=os.getenv("GROQ_API_KEY"),
-            model_name="llama-3.3-70b-versatile"
+            model_name="openai/gpt-oss-120b"
         )
 
         # 2. Setup Embeddings & Vector Store
@@ -170,14 +170,14 @@ RULES:
             return {
                 "total_chunks": total_docs,
                 "embedding_model": "all-MiniLM-L6-v2",
-                "llm_model": "llama-3.1-8b-instant",
+                "llm_model": "openai/gpt-oss-120b",
                 "tools_available": 3
             }
         except Exception:
             return {
                 "total_chunks": 0,
                 "embedding_model": "all-MiniLM-L6-v2",
-                "llm_model": "llama-3.1-8b-instant",
+                "llm_model": "openai/gpt-oss-120b",
                 "tools_available": 3
             }
 
