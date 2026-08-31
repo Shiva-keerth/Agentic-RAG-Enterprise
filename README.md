@@ -3,13 +3,13 @@
 ![Agentic RAG](https://img.shields.io/badge/Architecture-Agentic_RAG-00ffb4?style=for-the-badge)
 ![LangGraph](https://img.shields.io/badge/Framework-LangGraph-blue?style=for-the-badge)
 ![Groq](https://img.shields.io/badge/Inference-Groq_LPU-orange?style=for-the-badge)
-![Llama3](https://img.shields.io/badge/LLM-Llama_3.1-black?style=for-the-badge)
+![GPT-OSS](https://img.shields.io/badge/LLM-GPT--OSS_120B-black?style=for-the-badge)
 
 > **🔗 Live Demo:** [Dual-Domain-Agentic-RAG-Platform on Streamlit](https://agentic-rag-enterprise-vzbbup5nnfpezue7meh3fz.streamlit.app/) &nbsp;|&nbsp; **📊 GitHub Stats:** ![Stars](https://img.shields.io/github/stars/Shiva-keerth/Dual-Domain-Agentic-RAG-Platform?style=social)
 
 An Enterprise-grade **Agentic Retrieval-Augmented Generation (RAG)** platform that autonomously routes user queries between specialized domain vector databases and real-time live web search. 
 
-Instead of traditional static RAG (which always searches the same database regardless of context), this platform utilizes a **ReAct Agent** powered by `LangGraph` and `Llama-3.1` to dynamically reason about the user's intent and select the appropriate tool for the job.
+Instead of traditional static RAG (which always searches the same database regardless of context), this platform utilizes a **ReAct Agent** powered by `LangGraph` and `GPT-OSS 120B` to dynamically reason about the user's intent and select the appropriate tool for the job.
 
 ---
 
@@ -19,7 +19,7 @@ Instead of traditional static RAG (which always searches the same database regar
 - 🩺 **Healthcare + 💰 Finance domain routing**
 - 🌐 **Live web search with Tavily**
 - 📚 **Source-grounded responses**
-- ⚡ **Groq Llama 3.1 + ChromaDB**
+- ⚡ **Groq GPT-OSS 120B + ChromaDB**
 
 ---
 
@@ -46,7 +46,7 @@ Instead of traditional static RAG (which always searches the same database regar
 User Question
      │
      ▼
-[ LangGraph ReAct Agent ]  <-- Llama 3.1 8B (via Groq LPU)
+[ LangGraph ReAct Agent ]  <-- GPT-OSS 120B (via Groq LPU)
      │
      ├─▶ If Medical ─▶ [ Medical ChromaDB ] ─▶ Retrieve Patient Records
      ├─▶ If Finance ─▶ [ Finance ChromaDB ] ─▶ Retrieve Financial Reports
@@ -59,7 +59,7 @@ User Question
 ## 🛠️ Technology Stack
 
 - **Orchestration**: LangGraph, LangChain
-- **LLM**: Meta openai/gpt-oss-120b (via Groq API for ultra-low latency)
+- **LLM**: OpenAI gpt-oss-120b (via Groq API for ultra-low latency)
 - **Embeddings**: HuggingFace `all-MiniLM-L6-v2` (384-dimensional dense vectors)
 - **Vector Database**: ChromaDB (Persistent local storage with metadata filtering)
 - **Web Search API**: Tavily AI Search API
